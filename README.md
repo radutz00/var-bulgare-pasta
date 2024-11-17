@@ -10,111 +10,102 @@
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
         }
-
-        /* Containerele pentru carte */
-        .book {
-            width: 80vw;
-            height: 90vh;
-            display: flex;
-            flex-direction: row;
-            perspective: 1500px; /* Efectul de adâncire pentru carte */
-        }
-
-        .book-page {
-            width: 50%;
-            height: 100%;
-            background-color: #fff;
-            border: 2px solid #ddd;
-            transition: transform 1s;
-            transform-origin: left;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5em;
-            color: #333;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .book-page.left {
-            transform: rotateY(0deg);
-        }
-
-        .book-page.right {
-            transform: rotateY(180deg);
-        }
-
-        .page-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .btn {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            width: 100%;
-            padding: 10px;
-            text-align: center;
+        header {
             background-color: #8d6e63;
             color: white;
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            padding: 20px;
+            text-align: center;
         }
-
-        .btn:hover {
-            background-color: #4e342e;
+        nav {
+            background-color: #d7ccc8;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            flex-direction: column;
         }
-
-        /* Ascunderea paginii când se întoarce */
-        .book-page.turn {
-            transform: rotateY(180deg);
+        nav a {
+            margin: 5px 0;
+            text-decoration: none;
+            color: #4e342e;
+        }
+        .dropdown {
+            position: relative; /* Asigură că submeniul va fi poziționat corect */
+        }
+        .dropdown-content {
+            display: none;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            padding: 10px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            opacity: 0; /* Inițial, submeniul va fi invizibil */
+            transform: translateY(-20px); /* Submeniul începe mai sus */
+            transition: opacity 0.3s ease, transform 0.3s ease; /* Efecte de tranziție */
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1; /* Submeniul devine vizibil */
+            transform: translateY(0); /* Submeniul se va mișca la locul său */
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background-color: #8d6e63;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <div class="book">
-        <div class="book-page left">
-            <div class="page-content">
-                <h2>Despre Noi</h2>
-                <p>Suntem o fabrica traditionala de producere a varului bulgare si pasta, dedicata calitatii si autenticitatii.</p>
-                <p>Varul nostru bulgare este obtinut traditional in cuptor pe lemne, iar varul pasta este perfect pentru aplicatii versatile.</p>
-                <button class="btn" onclick="flipPage('left')">Urmeaza</button>
+    <header>
+        <h1>BIG-MIC - Var Traditional</h1>
+    </header>
+    <nav>
+        <div class="dropdown">
+            <a href="#">Despre Noi</a>
+            <div class="dropdown-content">
+                <a href="#despre">Despre Firma</a>
+                <a href="#produse">Produse</a>
+                <a href="#recenzii">Recenzii</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
-        <div class="book-page right">
-            <div class="page-content">
-                <h2>Produse</h2>
-                <ul>
-                    <li>Var Bulgare - Ideal pentru constructii, dezinfectat fantani, corectarea Ph sol, curatat si dezinfectat cotete animale, reducerea igrasiei, tratarea deseurilor periculoase, obtinut traditional in cuptor pe lemne.</li>
-                    <li>Var Pasta - Perfect pentru varuitul locuintei, varuitul pomilor, fresca bisericeasca.</li>
-                </ul>
-                <button class="btn" onclick="flipPage('right')">Inapoi</button>
-            </div>
-        </div>
+    </nav>
+    <div class="hero">
+        <h2>Calitate si Traditie in Productia de Var</h2>
     </div>
-
-    <script>
-        function flipPage(side) {
-            const leftPage = document.querySelector('.book-page.left');
-            const rightPage = document.querySelector('.book-page.right');
-            
-            if (side === 'left') {
-                leftPage.classList.add('turn');
-                rightPage.classList.remove('turn');
-            } else if (side === 'right') {
-                rightPage.classList.add('turn');
-                leftPage.classList.remove('turn');
-            }
-        }
-    </script>
+    <section id="despre">
+        <h2>Despre Noi</h2>
+        <p>Suntem o fabrica traditionala de producere a varului bulgare si pasta, dedicata calitatii si autenticitatii.</p>
+        <p>Varul nostru bulgare este obtinut traditional in cuptor pe lemne, iar varul pasta este perfect pentru aplicatii versatile.</p>
+    </section>
+    <section id="produse">
+        <h2>Produse</h2>
+        <ul>
+            <li>Var Bulgare - Ideal pentru constructii, dezinfectat fantani, corectarea Ph sol, curatat si dezinfectat cotete animale, reducerea igrasiei, tratarea deseurilor periculoase, obtinut traditional in cuptor pe lemne.</li>
+            <li>Var Pasta - Perfect pentru varuitul locuintei, varuitul pomilor, fresca bisericeasca.</li>
+        </ul>
+    </section>
+    <section id="recenzii">
+        <h2>Recenzii</h2>
+        <p><strong>Ion Popescu:</strong> „Varul de la BIG-MIC este de o calitate exceptionala! L-am folosit pentru renovarea casei si sunt foarte multumit de rezultate.”</p>
+        <p><strong>Maria Ionescu:</strong> „Recomand cu incredere varul pastă! Este usor de folosit si are o textura fina.”</p>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: radutzu2009@yahoo.com</p>
+        <p>Telefon: 0758280873</p>
+    </section>
+    <footer>
+        <p>&copy; 2024 BIG-MIC. Toate drepturile rezervate.</p>
+    </footer>
 </body>
 </html>
