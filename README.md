@@ -29,20 +29,17 @@
         .book-page {
             width: 50%;
             height: 100%;
-            background-color: #f8f1e5; /* Culoare galben-bej pentru a simula hârtie veche */
-            background-image: url('https://www.transparenttextures.com/patterns/old-map.png'); /* Textura de hârtie veche */
-            background-size: cover;
-            border: 1px solid #e2c29d; /* Margine maro deschis pentru a reda paginile uzate */
+            background-color: #fff;
+            border: 2px solid #ddd;
             transition: transform 1s;
             transform-origin: left;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 1.5em;
-            color: #4e342e;
+            color: #333;
             padding: 20px;
             box-sizing: border-box;
-            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1); /* Umbre interioare pentru efect de uzura */
         }
 
         .book-page.left {
@@ -71,8 +68,6 @@
             font-size: 1.2em;
             cursor: pointer;
             transition: background-color 0.3s;
-            border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         .btn:hover {
